@@ -46,17 +46,27 @@ export const getStyles = () => {
 export const getSizes = () => {
     return database.sizes.map(size => ({...size}))
 }
-export const getCurrentOrder = () => {
-    return database.orders.map(order => ({...order}))
+export const getCustomOrders = () => {
+    return database.customOrders.map(order => ({...order}))
 }
-export const setMetal = (id) => {
-    database.orderBuilder.metalId = id
-}
-
-export const setSize = (id) => {
-    database.orderBuilder.sizeId = id
+export const setMetal = (metalId) => {
+    database.orderBuilder.metalId = metalId
 }
 
-export const setStyle = (id) => {
-    database.orderBuilder.styleId = id
+export const setSize = (sizeId) => {
+    database.orderBuilder.sizeId = sizeId
+}
+
+export const setStyle = (styleId) => {
+    database.orderBuilder.styleId = styleId
+}
+
+export const addCustomOrder = () => {
+    const newOrder = {...database.orderBuilder}
+    const lastIndex = database.customOrders.length - 1
+    newOrder.id = database.customOrders[lastIndex].id + 1
+    newOrder.timestamp = Date.now()
+    database.customOrders.push(newOrder)
+    database.orderBuilder = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }

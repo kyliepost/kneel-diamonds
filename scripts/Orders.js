@@ -1,6 +1,6 @@
-import {  getCurrentOrder } from "./database.js"
+import {  getCustomOrders } from "./database.js"
 
-const currentOrder = getCurrentOrder()
+const customOrders = getCustomOrders()
 
 const buildOrderListItem = (order) => {
     return `<li>
