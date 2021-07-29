@@ -5,10 +5,10 @@ const sizes = getSizes()
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.name === "size") {
-            window.alert(``)
-        }
-    }
+        if(event.target.name === "size") {  
+                    window.alert(`User chose size ${event.target.value}`)
+                }   
+            }
 )
 
 export const DiamondSizes = () => {
