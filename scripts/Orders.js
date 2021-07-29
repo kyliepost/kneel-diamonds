@@ -1,4 +1,6 @@
-import { getOrders } from "./database.js"
+import {  getCurrentOrder } from "./database.js"
+
+const currentOrder = getCurrentOrder()
 
 const buildOrderListItem = (order) => {
     return `<li>
