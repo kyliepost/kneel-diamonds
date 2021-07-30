@@ -12,6 +12,7 @@ document.addEventListener(
     }
 )
 
+
 export const JewelryStyles = () => {
     let html = "<ul>"
 
