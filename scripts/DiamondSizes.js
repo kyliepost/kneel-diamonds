@@ -11,6 +11,7 @@ document.addEventListener(
     }
 )
 
+
 export const DiamondSizes = () => {
     let html = "<ul>"
 

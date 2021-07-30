@@ -1,11 +1,27 @@
-import {  getCustomOrders } from "./database.js"
-
-const customOrders = getCustomOrders()
+import {  getCustomOrders, getMetals } from "./database.js"
 
 
 const buildOrderListItem = (order) => {
+
+
+const customOrders = getCustomOrders()
+const metals = getMetals()
+
+const foundMetal = metals.find(
+    (metal) => {
+        return metal.id === order.metalId
+    }
+)
+const totalCost = foundMetal.price
+
+const costString = totalCost.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+})
+
+
     return `<li>
-        Order #${order.id} was placed on ${order.timestamp}
+        Order #${order.id} cost ${costString}
     </li>`
 }
 
