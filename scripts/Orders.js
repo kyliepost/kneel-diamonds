@@ -13,14 +13,12 @@ const foundMetal = metals.find(
         return metal.id === order.metalId
     }
 )
-const totalCost = foundMetal.price
 
 const foundSize = sizes.find(
     (size) => {
         return size.id === order.sizeId
     }
 )
-const totalCost = foundSize.price
 
 
 const foundStyle = styles.find(
@@ -28,7 +26,8 @@ const foundStyle = styles.find(
         return style.id === order.styleId
     }
 )
-const totalCost = foundStyle.price
+
+const totalCost = foundMetal.price + foundSize.price + foundStyle.price
 
 const costString = totalCost.toLocaleString("en-US", {
     style: "currency",
